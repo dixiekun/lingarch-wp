@@ -1,0 +1,212 @@
+section.map_section {
+      background: #0A264D;
+      padding: 20px 0;
+    }
+
+    .map-container {
+      position: relative;
+      max-width: 1212px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .map-container img {
+      width: 100%;
+      display: block;
+    }
+
+    .location {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+
+    .pin-1 {
+      width: 20px;
+      height: 20px;
+      background-color: #1A68E0;
+      border-radius: 60px 60px 0px 60px;
+      position: relative;
+      transform: rotate(45deg);
+    }
+
+    .pin-1::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #1AE5E5;
+      position: absolute;
+      left: 26%;
+      top: 26%;
+      border-radius: 60px;
+    }
+
+.show_conent {
+    position: absolute;
+    top: 25px;
+    left: -47px;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+    .tooltip {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+      min-width: 180px;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 8px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    .tooltip h5 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      color: #007bff;
+    }
+
+    .tooltip p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    /* Hover behaviors */
+    .location:hover .show_conent {
+      display: none;
+    }
+
+    .location:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      top: -120px;
+    }
+
+    .location:hover .pin-1 {
+      width: 40px;
+      height: 40px;
+    }
+
+    .location:hover .pin-1::after {
+      width: 20px;
+      height: 20px;
+      background: #fff;
+    }
+
+    /* Positioning via unique class names */
+.location-chicago {
+    top: 26%;
+    left: 23%;
+}
+.location-nyc {
+    top: 34%;
+    left: 27.2%;
+}
+.location-london {
+    top: 22%;
+    left: 45%;
+}
+.location-birmingham {
+    top: 28%;
+    left: 47%;
+}
+.location-manchester {
+    top: 31%;
+    left: 48%;
+}
+.location-barcelona {
+    top: 41%;
+    left: 46%;
+}
+.location-dubai {
+    top: 46%;
+    left: 60%;
+}
+.location-hk {
+    top: 48%;
+    left: 77.8%;
+}
+.show_conent h5 {
+    background: #fff;
+    color: #0A264D;
+    padding: 5px 20px;
+    font-family: 'Poppins-Regular';
+    font-size: 16px;
+    border-radius: 10px 0px 10px 10px;
+}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tooltip {
+        font-size: 12px;
+        padding: 8px 10px;
+        min-width: 150px;
+      }
+
+      .tooltip h5 {
+        font-size: 13px;
+      }
+
+      .tooltip p {
+        font-size: 12px;
+      }
+
+      .pin-1 {
+        width: 20px;
+        height: 20px;
+      }
+
+      .pin-1::after {
+        width: 10px;
+        height: 10px;
+      }
+
+      .location:hover .pin-1 {
+        width: 30px;
+        height: 30px;
+      }
+
+      .location:hover .pin-1::after {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tooltip {
+        transform: translate(-50%, -50%);
+        top: -110px;
+      }
+    }
+
+    /* Mobile toggle support */
+    .tooltip.show {
+      opacity: 1 !important;
+      visibility: visible !important;
+      top: -120px !important;
+    }
+
+    .show_conent.hide {
+      display: none !important;
+    }

@@ -1,0 +1,114 @@
+<?php
+/* Template Name:  */
+
+get_header(); 
+
+?>
+<!-- banner Section Start -->
+<section class="banner-video-section about-us-banner case-study-carousel owl-carousel owl-theme">
+  <?php
+    $args2 = array(
+      'numberposts' => 5, // Limit to 5 posts
+      'post_type'   => 'case-study',
+      'order'       => 'DESC',
+      'orderby'     => 'date',
+    );
+    $all_blog = get_posts($args2);
+
+    foreach ($all_blog as $all_posts) {
+  ?>
+  <div class="item">
+    <div class="banner_img">
+      <a href="<?php echo get_the_permalink($all_posts->ID); ?>">
+        <img class="destop_img" src="<?php echo get_the_post_thumbnail_url($all_posts->ID, 'full'); ?>" alt="">
+      </a>
+      <a href="<?php echo get_the_permalink($all_posts->ID); ?>"></a>
+      <img class="mobile_img" src="<?php echo get_the_post_thumbnail_url($all_posts->ID, 'full'); ?>" alt="">
+      </a>
+    </div>
+    <div class="banner_video_main">
+
+
+      <h3><?php echo $all_posts->post_title; ?></h3>
+      <p><?php echo wp_trim_words($all_posts->banner_title_para, 50, '...'); ?></p>
+
+      <div class="get_banner_bt">
+        <a href="<?php echo get_the_permalink($all_posts->ID); ?>">Read More</a>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+
+</section>
+
+<!-- banenr Section start -->
+<!-- case Study listing section -->
+<section class="case_study_listing">
+  <!-- CASE STUDY BLOCKS -->
+  <?php
+    $args2 = array(
+      'numberposts' => 10,
+      'post_type'   => 'case-study',
+      'order'       => 'DESC',
+      'orderby'     => 'date',
+    );
+    $all_blog = get_posts($args2);
+    $i = 0;
+
+    foreach ($all_blog as $all_posts) {
+      $i++;
+      $is_even = $i % 2 == 0;
+  ?>
+  <a href="<?php echo get_the_permalink($all_posts->ID); ?>"><div class="main_div_case row case-row <?php echo $is_even ? 'reverse-row' : ''; ?>">
+    <div class="sub_div_case_img col-lg-6">
+      <img src="<?php echo get_the_post_thumbnail_url($all_posts->ID, 'full'); ?>" alt="">
+    </div>
+    <div class="sub_div_case_conent col-lg-6">
+      <div class="container">
+        <div class="sub_div-1">
+          <h3><?php echo $all_posts->post_title; ?></h3>
+          <p><?php echo wp_trim_words($all_posts->banner_title_para, 30, '...'); ?></p>
+        </div>
+      </div>
+    </div>
+  </div></a>
+  <?php } ?>
+
+  <!-- LOAD MORE BUTTON -->
+  <div class="load_more_btn">
+    <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+  </div>
+</section>
+
+<!-- case Study listing section -->
+
+<!-- Need Language Support section -->
+<section class="need_support_section destop_need">
+  <div class="container">
+    <div class="need_support_main">
+      <div class="need_support_img">
+        <img src="image/contact-background.png" alt="">
+      </div>
+      <div class="need_support_div">
+        <h3>Need Language Support?</h3>
+        <p>Breaking language barriers with expert translation and interpretation services in 120+ languages, 24/7.</p>
+        <div class="get_quote">
+          <a href="">Get Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="need_sup Mobile_need">
+  <div class="container">
+    <div class="need_support_div_mob">
+      <h3>Need Language Support?</h3>
+      <p>Breaking language barriers with expert translation and interpretation services in 120+ languages, 24/7.</p>
+      <div class="get_quote_mob">
+        <a href="">Get Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Need Language Support section -->
+<?php get_footer(); ?>

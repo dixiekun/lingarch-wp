@@ -1,0 +1,213 @@
+<?php get_header('new');  ?>
+
+    <div onclick="hideNavbar()" class="overlay" >
+      <section id="blog-img" style="padding-top:82px;">
+        <div class="container-fluid px-0">
+         <img 
+  src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" 
+  alt="<?php echo esc_attr(get_the_title()); ?>" 
+  title="<?php echo esc_attr(get_the_title()); ?>" 
+  class="blog_word">
+
+        </div>
+      </section>
+
+      <!-- following section is for the desktop view only -->
+      <section
+        id="blogs-des"
+        class="px-3 pb-5 d-none d-md-block"
+        style="
+          display: flex;
+          align-items: center;
+          background-color: white;
+          color: black;
+          font-weight: 500;
+        ">
+        <div class="container-fluid blog_conet px-lg-5  ">
+          <div class="blog-heading pt-4">
+          <h1><?php the_title(); ?></h1>
+          </div>
+         <?php the_content(); ?>
+        </div>
+      </section>
+
+      <!-- the following section is for the mobile view only -->
+      <section
+        id="blogs-mob"
+        class="px-3 pb-5 d-block d-md-none"
+        style="
+          display: flex;
+          align-items: center;
+          background-color: white;
+          color: black;
+          font-weight: 500;
+        ">
+       <div class="container-fluid px-lg-5 text-center">
+         <?php the_content(); ?>
+        </div>
+      </section>
+<!-- client stories mobile end -->
+<section class="faq_section_new">
+  <div class="container">
+    <div class="faq-section">
+      <h3 class="sub-heading my-4">Frequently Asked Questions</h3>
+      <div class="faqs-container-new" itemscope itemtype="https://schema.org/FAQPage">
+
+        <?php if (have_rows('faq_items')) : $faq_count = 1; ?>
+          <?php while (have_rows('faq_items')) : the_row(); 
+            $question = get_sub_field('question');
+            $answer = get_sub_field('answer');
+          ?>
+            <div class="faq-singular-new <?php echo $faq_count === 1 ? 'active' : ''; ?>" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 class="faq-question" itemprop="name">
+                <?php echo $faq_count . '. ' . esc_html($question); ?>
+              </h3>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="<?php echo $faq_count === 1 ? 'display:block;' : ''; ?>">
+                <div itemprop="text">
+                  <p><?php echo wp_kses_post($answer); ?></p>
+                </div>
+              </div>
+            </div>
+            <?php $faq_count++; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <section
+        id="customer-voice"
+        class="px-3 pt-4 pb-2 d-none d-md-block"
+        style="display: flex; align-items: center; background: #000;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h2
+                class="d-none d-md-block hover-green text-center"
+                style="font-size: 4dvw; color: white">
+                Customer Voice
+              </h2>
+              <h2
+                class="d-block d-md-none hover-green text-center"
+                style="font-size: 4.5dvh; color: white">
+                Customer Voice
+              </h2>
+              <div class="wrapper pt-3">
+                <div class="my-slider1 px-md-5 mx-md-5">
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%; height: 40dvh"
+                        src="https://www.youtube.com/embed/eUlYRKuYlxo?si=pLdvpP8UD6YUQknB"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%; height: 40dvh"
+                        src="https://www.youtube.com/embed/IHRyCe0WhqU?si=QKWDiLuaoumgoEBu"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%; height: 40dvh"
+                        src="https://www.youtube.com/embed/ytNVPe88Ezw?si=o1c_gPmiRaLp0qdl"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="customer-voice"
+        class="px-3 pt-4 pb-2 d-block d-md-none"
+        style="display: flex; align-items: center; background: #000;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h2
+                class="d-none d-md-block hover-green text-center"
+                style="font-size: 4dvw; color: white">
+                Customer Voice
+              </h2>
+              <h2
+                class="d-block d-md-none hover-green text-center"
+                style="font-size: 4.5dvh; color: white">
+                Customer Voice
+              </h2>
+              <div class="wrapper pt-3">
+                <div class="my-slider1-mob px-md-5 mx-md-5">
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%"
+                        src="https://www.youtube.com/embed/eUlYRKuYlxo?si=pLdvpP8UD6YUQknB"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%"
+                        src="https://www.youtube.com/embed/IHRyCe0WhqU?si=QKWDiLuaoumgoEBu"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                  <div class="row" style="height: auto">
+                    <div class="col-12">
+                      <iframe
+                        style="width: 100%"
+                        src="https://www.youtube.com/embed/ytNVPe88Ezw?si=o1c_gPmiRaLp0qdl"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                      <h6></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+</div>
+	    <?php get_footer(); ?>
+
