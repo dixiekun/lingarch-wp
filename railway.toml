@@ -6,11 +6,3 @@ startCommand = "apache2-foreground"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "always"
-
-[build.watchPatterns]
-include = ["**/*"]
-ignore = [".git/**"]
-
-# Increase upload limits
-[experimental]
-incrementalBuild = false
