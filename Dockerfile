@@ -1,18 +1,19 @@
 FROM wordpress:latest
 
-# Install curl for health checks
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+# Install additional PHP extensions if needed
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy WordPress configuration
-COPY wp-config.php /var/www/html/wp-config.php
+# Copy all WordPress files
+COPY . /var/www/html/
 
-# Copy complete custom theme
-COPY twentytwentyfive/ /var/www/html/wp-content/themes/twentytwentyfive/
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 755 /var/www/html
 
-# Set proper permissions  
-RUN chown -R www-data:www-data /var/www/html/wp-content/themes/twentytwentyfive
-RUN chown www-data:www-data /var/www/html/wp-config.php
-RUN chmod -R 755 /var/www/html/wp-content/themes/twentytwentyfive
-RUN chmod 644 /var/www/html/wp-config.php
-
+# Expose port 80
 EXPOSE 80
+
+# Use the default WordPress entrypoint
+CMD ["apache2-foreground"]
